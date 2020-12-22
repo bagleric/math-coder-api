@@ -16,7 +16,4 @@ use Illuminate\Support\Facades\Schema;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/test', function () {
-    Schema::drop('failed_jobs');
-    return "dropped";
-});
+
