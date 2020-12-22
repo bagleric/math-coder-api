@@ -17,8 +17,8 @@ class CreateActivitiesTable extends Migration
             $table->string('id')->primary();
             $table->string('name');
             $table->string('description',512);
-            $table->json('blocks');
-            $table->json('reflections');
+            $table->text('blocks');
+            $table->text('reflections');
             $table->string('prompt',512);
         });
     }

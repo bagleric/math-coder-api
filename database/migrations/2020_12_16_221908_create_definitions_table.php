@@ -15,7 +15,7 @@ class CreateDefinitionsTable extends Migration
     {
         Schema::create('definitions', function (Blueprint $table) {
             $table->id();
-            $table->json('name');
+            $table->text('name');
             $table->string('definition_html', 512);
         });
     }

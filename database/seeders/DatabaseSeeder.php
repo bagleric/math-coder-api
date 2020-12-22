@@ -15,9 +15,9 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
         $this->call([
-            StandardSeeder::class,
-            DefinitionSeeder::class,
-            ActivitySeeder::class,
+//            StandardSeeder::class,
+//            DefinitionSeeder::class,
+//            ActivitySeeder::class,
         ]);
     }
 }
