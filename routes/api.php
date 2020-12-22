@@ -17,7 +17,8 @@ use Illuminate\Support\Facades\Route;
 //Route::middleware('auth:api')->get('/user', function (Request $request) {
 //    return $request->user();
 //});
-Route::get('/user/create','App\Http\Controllers\UserController@createUser');
+Route::post('/user/create','App\Http\Controllers\UserController@createUser');
+Route::post('/answer/store','App\Http\Controllers\AnswerController@storeAnswer');
 Route::get('/standard/get','App\Http\Controllers\StandardController@get');
 Route::get('/definition/get','App\Http\Controllers\DefinitionController@get');
 Route::get('/activity/get','App\Http\Controllers\ActivityController@get');
