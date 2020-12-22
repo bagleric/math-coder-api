@@ -17,6 +17,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/test', function () {
-    Schema::drop('definitions');
+    Schema::drop('failed_jobs');
     return "dropped";
 });
