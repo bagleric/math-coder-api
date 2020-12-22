@@ -15,12 +15,18 @@ class UserController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return $validator->errors();
+            return [
+                        'success'=>false,
+                        'errors'=>$validator->errors()
+            ];
         }
         $user = new User();
         $user->first_name = $request->first_name;
         $user->last_name = $request->last_name;
         $user->save();
-        return $user;
+        return [
+            'success'=>true,
+            'user'=>$user,
+        ];
     }
 }
