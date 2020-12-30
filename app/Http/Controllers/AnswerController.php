@@ -11,7 +11,7 @@ class AnswerController extends Controller
 {
     public function storeAnswer(Request $request){
         $validator = Validator::make($request->all(), [
-            'user_id' => ['required', 'exists:users,id'],
+            'user_id' => ['bail','required', 'exists:users,id'],
             'question_id' => ['bail', 'required', 'max:255'],
             'value' => ['bail', 'required', 'max:255'],
         ]);
