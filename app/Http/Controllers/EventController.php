@@ -13,17 +13,17 @@ class EventController extends Controller
             'user_id' => ['bail', 'required', 'exists:users,id'],
             'activity_id' => ['bail', 'required', 'max:255'],
             'module_id' => ['bail', 'required', 'max:255'],
-            'blockly_event'=>['bail', 'json'],
-            'created_at' => ['bail', 'required', 'date_format:Y-m-d H:i:s'],
+            'blockly_event'=>['bail', 'json', 'nullable'],
+            'created_at' => ['required', 'date_format:Y-m-d H:i:s'],
         ]);
-        return $request->all();
+        return $validator->fails();
         if ($validator->fails()) {
             return [
                 'success'=>false,
                 'errors'=>$validator->errors()
             ];
         }
-
+        return $request->all();
         $event = new Event();
         $event->user_id = $request->user_id;
         $event->activity_id = $request->activity_id;
