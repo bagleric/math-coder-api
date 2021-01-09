@@ -33,8 +33,6 @@ class EventController extends Controller
         }
         $event->created_at = $request->created_at;
         $event->save();
-        return json_decode($event->blockly_event);
-        $event->blockly_event = json_decode($event->blockly_event);
         return [
             'success'=>true,
             'event'=>$event,
