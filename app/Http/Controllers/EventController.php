@@ -16,7 +16,7 @@ class EventController extends Controller
             'blockly_event'=>['bail', 'json', 'nullable'],
             'created_at' => ['required', 'date_format:Y-m-d H:i:s'],
         ]);
-        return $validator->errors();
+//        return $validator->errors();
         if ($validator->fails()) {
             return [
                 'success'=>false,
