@@ -14,8 +14,8 @@ class Event extends Model
     {
         parent::boot();
 
-        static::creating(function ($model) {
-            $model->created_at = $model->freshTimestamp();
-        });
+//        static::creating(function ($model) {
+//            $model->created_at = $model->freshTimestamp();
+//        });
     }
 }

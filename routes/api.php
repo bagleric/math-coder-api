@@ -23,3 +23,5 @@ Route::post('/event/store','App\Http\Controllers\EventController@storeEvent');
 Route::get('/standard/get','App\Http\Controllers\StandardController@get');
 Route::get('/definition/get','App\Http\Controllers\DefinitionController@get');
 Route::get('/activity/get','App\Http\Controllers\ActivityController@get');
+Route::get('/activity/finish','App\Http\Controllers\ActivityController@finishActivity');
+

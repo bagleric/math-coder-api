@@ -8,6 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Activity extends Model
 {
     use HasFactory;
-    protected $casts = ['id' => 'string'];
-
+    public $timestamps = false;
+    protected $fillable = ['user_id', 'activity_id', 'module_id', 'started_at', 'ended_at', 'no_of_compiles', 'completed', 'compilation_timestamps', 'screen_size'];
 }

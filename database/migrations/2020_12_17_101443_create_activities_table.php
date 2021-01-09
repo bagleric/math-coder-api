@@ -14,12 +14,16 @@ class CreateActivitiesTable extends Migration
     public function up()
     {
         Schema::create('activities', function (Blueprint $table) {
-            $table->string('id')->primary();
-            $table->string('name');
-            $table->string('description',512);
-            $table->text('blocks');
-            $table->text('reflections');
-            $table->string('prompt',512);
+            $table->id();
+            $table->string('user_id');
+            $table->string('activity_id');
+            $table->string('module_id');
+            $table->dateTime('started_at');
+            $table->dateTime('ended_at');
+            $table->integer('no_of_compiles');
+            $table->boolean('completed');
+            $table->text('compilation_timestamps');
+            $table->string('screen_size');
         });
     }
 
