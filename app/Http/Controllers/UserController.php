@@ -10,7 +10,7 @@ class UserController extends Controller
 {
     public function createUser(Request $request){
         $validator = Validator::make($request->all(), [
-            'first_name' => ['required', 'max:255'],
+            'first_name' => ['bail', 'required', 'max:255'],
             'last_name' => ['bail', 'required', 'max:255'],
         ]);
 
