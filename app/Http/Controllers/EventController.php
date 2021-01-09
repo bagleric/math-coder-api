@@ -23,12 +23,14 @@ class EventController extends Controller
                 'errors'=>$validator->errors()
             ];
         }
-        return $request->all();
+//        return $request->all();
         $event = new Event();
         $event->user_id = $request->user_id;
         $event->activity_id = $request->activity_id;
         $event->module_id = $request->module_id;
-        $event->blockly_event = $request->blockly_event;
+        if (array_key_exists('blockly_event', $request->all()) and $request->blockly_event != null){
+            $event->blockly_event = $request->blockly_event;
+        }
         $event->created_at = $request->created_at;
         $event->save();
         return [
