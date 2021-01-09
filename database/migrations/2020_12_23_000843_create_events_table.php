@@ -18,6 +18,7 @@ class CreateEventsTable extends Migration
             $table->string('user_id');
             $table->string('activity_id');
             $table->string('module_id');
+            $table->text('blockly_event');
             $table->dateTime('created_at');
         });
     }
