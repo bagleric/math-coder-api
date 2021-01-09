@@ -33,6 +33,7 @@ class EventController extends Controller
         }
         $event->created_at = $request->created_at;
         $event->save();
+        $event = Event::find($event->id);
         $event->blockly_event = json_decode($event->blockly_event);
         return [
             'success'=>true,
