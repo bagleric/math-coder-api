@@ -9,7 +9,6 @@ use Illuminate\Support\Facades\Validator;
 class EventController extends Controller
 {
     public function storeEvent(Request $request){
-        return $request->all();
         $validator = Validator::make($request->all(), [
             'user_id' => ['bail', 'required', 'exists:users,id'],
             'activity_id' => ['bail', 'required', 'max:255'],
@@ -17,7 +16,7 @@ class EventController extends Controller
             'blockly_event'=>['bail', 'json'],
             'created_at' => ['bail', 'required', 'date_format:Y-m-d H:i:s'],
         ]);
-
+        return $request->all();
         if ($validator->fails()) {
             return [
                 'success'=>false,
