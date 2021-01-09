@@ -13,7 +13,7 @@ class EventController extends Controller
             'user_id' => ['bail', 'required', 'exists:users,id'],
             'activity_id' => ['bail', 'required', 'max:255'],
             'module_id' => ['bail', 'required', 'max:255'],
-            'blockly_event'=>['bail', 'json', 'nullable'],
+            'blockly_event'=>['bail', 'nullable'],
             'created_at' => ['required', 'date_format:Y-m-d H:i:s'],
         ]);
 
