@@ -34,6 +34,11 @@ class EventController extends Controller
         $event->created_at = $request->created_at;
         $event->save();
         $event->blockly_event = json_decode($event->blockly_event);
+        $decoded_event = [];
+        foreach ($event->blockly_event as $blockly_event){
+            array_push($decoded_event,html_entity_decode($blockly_event));
+        }
+        $event->blockly_event = $decoded_event;
         return [
             'success'=>true,
             'event'=>$event,
