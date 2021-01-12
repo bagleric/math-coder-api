@@ -40,9 +40,9 @@ class ActivityController extends Controller
         $activity->compilation_timestamps = $request->compilation_timestamps;
         $activity->screen_size = $request->screen_size;
         $activity->save();
-        if(array_key_exists('compilation_timestamps', $request->all()) and $request->compilation_timestamps != null){
-            $activity->compilation_timestamps = json_decode($activity->compilation_timestamps);
-        }
+//        if(array_key_exists('compilation_timestamps', $request->all()) and $request->compilation_timestamps != null){
+//            $activity->compilation_timestamps = json_decode($activity->compilation_timestamps);
+//        }
         $activity->compilation_timestamps = json_decode($activity->compilation_timestamps);
         return [
             'success'=>true,

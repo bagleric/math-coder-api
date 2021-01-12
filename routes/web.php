@@ -13,6 +13,9 @@ use Illuminate\Support\Facades\Schema;
 |
 */
 
+Route::get('/test', function () {
+    return json_encode(["2021-12-13 12:34:08", "2021-12-13 12:34:08"]);
+});
 Route::get('/', function () {
     return view('welcome');
 });

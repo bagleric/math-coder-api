@@ -19,7 +19,7 @@ class AnswerController extends Controller
         if ($validator->fails()) {
             return [
                 'success'=>false,
-                'errors'=>$validator->errors()
+                'errors'=>$validator->errors()->first()
             ];
         }
         $answer = new Answer();
