@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Validator;
 class ActivityController extends Controller
 {
     public function finishActivity(Request $request){
-        return $request->all();
+//        return $request->all();
         $validator = Validator::make($request->all(), [
             'user_id' => ['bail', 'required', 'exists:users,id'],
             'activity_id' => ['bail', 'required', 'max:255'],
@@ -21,7 +21,7 @@ class ActivityController extends Controller
             'compilation_timestamps'=>['bail', 'json', 'required'],
             'screen_size' => ['bail', 'required', 'max:255'],
         ]);
-
+        return $validator->fails();
         if ($validator->fails()) {
             return [
                 'success'=>false,
