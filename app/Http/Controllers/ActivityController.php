@@ -17,8 +17,8 @@ class ActivityController extends Controller
             'started_at' => ['bail', 'required', 'date_format:Y-m-d H:i:s'],
             'ended_at' => ['bail', 'required', 'date_format:Y-m-d H:i:s'],
             'no_of_compiles' => ['bail', 'required', 'integer'],
-//            'completed' => ['bail', 'required', 'boolean'],
-//            'compilation_timestamps'=>['bail', 'json', 'required'],
+            'completed' => ['bail', 'required', 'boolean'],
+            'compilation_timestamps'=>['bail', 'json', 'required'],
 //            'screen_size' => ['bail', 'required', 'max:255'],
         ]);
         return $validator->fails();
