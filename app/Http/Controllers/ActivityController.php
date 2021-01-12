@@ -26,7 +26,7 @@ class ActivityController extends Controller
         if ($validator->fails()) {
             return [
                 'success'=>false,
-                'errors'=>$validator->errors()
+                'errors'=>$validator->errors()->first(),
             ];
         }
         $activity = new Activity();
