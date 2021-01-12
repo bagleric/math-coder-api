@@ -18,10 +18,11 @@ class ActivityController extends Controller
             'ended_at' => ['bail', 'required', 'date_format:Y-m-d H:i:s'],
             'no_of_compiles' => ['bail', 'required', 'integer'],
             'completed' => ['bail', 'required', 'boolean'],
-            'compilation_timestamps' => ['bail', 'required', 'array'],
+            'compilation_timestamps' => ['bail', 'required', 'string'],
+            'compilation_timestamps.*' => ['required' | 'string'],
             'screen_size' => ['bail', 'required', 'max:255'],
         ]);
-        return $validator->fails();
+//        return $validator->fails();
         if ($validator->fails()) {
             return [
                 'success'=>false,
@@ -49,18 +50,18 @@ class ActivityController extends Controller
         ];
     }
     public function get(){
-        $activities = Activity::all();
-        foreach ($activities as $activity){
-            $activity->blocks = json_decode($activity->blocks);
-            $activity->prompt = html_entity_decode($activity->prompt);
-            $reflections = json_decode($activity->reflections);
-            $decoded_reflections = array();
-            foreach ($reflections as $reflection){
-                $reflection = html_entity_decode($reflection);
-                array_push($decoded_reflections,$reflection);
-            }
-            $activity->reflections= $decoded_reflections;
-        }
-        return $activities;
+//        $activities = Activity::all();
+//        foreach ($activities as $activity){
+//            $activity->blocks = json_decode($activity->blocks);
+//            $activity->prompt = html_entity_decode($activity->prompt);
+//            $reflections = json_decode($activity->reflections);
+//            $decoded_reflections = array();
+//            foreach ($reflections as $reflection){
+//                $reflection = html_entity_decode($reflection);
+//                array_push($decoded_reflections,$reflection);
+//            }
+//            $activity->reflections= $decoded_reflections;
+//        }
+//        return $activities;
     }
 }
