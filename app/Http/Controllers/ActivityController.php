@@ -11,15 +11,15 @@ class ActivityController extends Controller
     public function finishActivity(Request $request){
 //        return $request->all();
         $validator = Validator::make($request->all(), [
-            'user_id' => ['bail', 'required', 'exists:users,id'],
-            'activity_id' => ['bail', 'required', 'max:255'],
-            'module_id' => ['bail', 'required', 'max:255'],
-            'started_at' => ['bail', 'required', 'date_format:Y-m-d H:i:s'],
-            'ended_at' => ['bail', 'required', 'date_format:Y-m-d H:i:s'],
-            'no_of_compiles' => ['bail', 'required', 'integer'],
-            'completed' => ['bail', 'required', 'boolean'],
-            'compilation_timestamps'=>['bail', 'json', 'required'],
-            'screen_size' => ['bail', 'required', 'max:255'],
+//            'user_id' => ['bail', 'required', 'exists:users,id'],
+//            'activity_id' => ['bail', 'required', 'max:255'],
+//            'module_id' => ['bail', 'required', 'max:255'],
+//            'started_at' => ['bail', 'required', 'date_format:Y-m-d H:i:s'],
+//            'ended_at' => ['bail', 'required', 'date_format:Y-m-d H:i:s'],
+//            'no_of_compiles' => ['bail', 'required', 'integer'],
+//            'completed' => ['bail', 'required', 'boolean'],
+//            'compilation_timestamps'=>['bail', 'json', 'required'],
+//            'screen_size' => ['bail', 'required', 'max:255'],
         ]);
         return $validator->fails();
         if ($validator->fails()) {
