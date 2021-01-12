@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Validator;
 class ActivityController extends Controller
 {
     public function finishActivity(Request $request){
+        return $request->all();
         $validator = Validator::make($request->all(), [
             'user_id' => ['bail', 'required', 'exists:users,id'],
             'activity_id' => ['bail', 'required', 'max:255'],
@@ -38,6 +39,9 @@ class ActivityController extends Controller
         $activity->compilation_timestamps = $request->compilation_timestamps;
         $activity->screen_size = $request->screen_size;
         $activity->save();
+        if(array_key_exists('compilation_timestamps', $request->all()) and $request->compilation_timestamps != null){
+            $activity->compilation_timestamps = json_decode($activity->compilation_timestamps);
+        }
         $activity->compilation_timestamps = json_decode($activity->compilation_timestamps);
         return [
             'success'=>true,

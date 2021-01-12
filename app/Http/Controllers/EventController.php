@@ -16,14 +16,12 @@ class EventController extends Controller
             'blockly_event'=>['bail', 'json', 'nullable'],
             'created_at' => ['required', 'date_format:Y-m-d H:i:s'],
         ]);
-
         if ($validator->fails()) {
             return [
                 'success'=>false,
                 'errors'=>$validator->errors()
             ];
         }
-//        return $request->all();
         $event = new Event();
         $event->user_id = $request->user_id;
         $event->activity_id = $request->activity_id;
