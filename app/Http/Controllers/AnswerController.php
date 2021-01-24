@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Answer;
-use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -31,5 +30,9 @@ class AnswerController extends Controller
             'success'=>true,
             'answer'=>$answer,
         ];
+    }
+    public function show(){
+        $answers = Answer::all();
+        return view('answer',['answers'=>$answers]);
     }
 }
