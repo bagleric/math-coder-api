@@ -1,4 +1,5 @@
 <?php
-@foreach($activities as $activity)
-    {{ $activity->id }}
-@endforeach
+    {{dd($activities)}}
+{{--@foreach($activities as $activity)--}}
+{{--    {{ $activity->id }}--}}
+{{--@endforeach--}}
