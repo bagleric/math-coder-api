@@ -2,15 +2,8 @@
     <table>
         <tr>
             <th>ID</th>
-            <th>User ID</th>
-            <th>Activity ID</th>
-            <th>Module ID</th>
-            <th>Started At</th>
-            <th>Ended At</th>
-            <th>No of Compiles</th>
-            <th>Completed</th>
-            <th>Compilation Timestamps</th>
-            <th>Screen Size</th>
+            <th>Question ID</th>
+            <th>Value</th>
         </tr>
         @foreach($answers as $answer)
             <tr>
