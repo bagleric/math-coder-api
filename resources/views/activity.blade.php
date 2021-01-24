@@ -11,8 +11,9 @@
         <th>Compilation Timestamps</th>
         <th>Screen Size</th>
     </tr>
-    <tr>
-        @foreach($activities as $activity)
+
+    @foreach($activities as $activity)
+        <tr>
             <td>{{ $activity->id }}</td>
             <td>{{ $activity->user_id }}</td>
             <td>{{ $activity->activity_id }}</td>
@@ -23,6 +24,6 @@
             <td>{{ $activity->completed }}</td>
             <td>{{ $activity->compilation_timestamps }}</td>
             <td>{{ $activity->screen_size }}</td>
-        @endforeach
-    </tr>
+        </tr>
+    @endforeach
 </table>
