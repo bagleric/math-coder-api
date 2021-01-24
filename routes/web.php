@@ -13,10 +13,10 @@ use Illuminate\Support\Facades\Schema;
 |
 */
 
-Route::get('/activity/show','App\Http\Controllers\ActivityController@show');
-Route::get('/user/show','App\Http\Controllers\UserController@show');
-Route::get('/answer/show','App\Http\Controllers\AnswerController@show');
-Route::get('/event/show','App\Http\Controllers\EventController@show');
+Route::get('/activity/show','App\Http\Controllers\ActivityController@show')->name('activity.show');
+Route::get('/user/show','App\Http\Controllers\UserController@show')->name('user.show');
+Route::get('/answer/show','App\Http\Controllers\AnswerController@show')->name('answer.show');
+Route::get('/event/show','App\Http\Controllers\EventController@show')->name('event.show');
 Route::get('/', function () {
     return view('welcome');
 });
