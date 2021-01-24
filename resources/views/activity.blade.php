@@ -1,2 +1,2 @@
 <?php
-@dd($activities)
+{{$activities}}
