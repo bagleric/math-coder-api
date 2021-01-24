@@ -22,6 +22,5 @@ Route::post('/answer/store','App\Http\Controllers\AnswerController@storeAnswer')
 Route::post('/event/store','App\Http\Controllers\EventController@storeEvent');
 Route::get('/standard/get','App\Http\Controllers\StandardController@get');
 Route::get('/definition/get','App\Http\Controllers\DefinitionController@get');
-
 Route::post('/activity/finish','App\Http\Controllers\ActivityController@finishActivity');
 

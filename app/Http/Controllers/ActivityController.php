@@ -47,8 +47,6 @@ class ActivityController extends Controller
     }
     public function show(){
         $activities = Activity::all();
-//        return $activities;
-//        dd($activities);
         return view('activity',['activities'=>$activities]);
     }
 }

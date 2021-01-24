@@ -29,4 +29,8 @@ class UserController extends Controller
             'user'=>$user,
         ];
     }
+    public function show(){
+        $users = User::all();
+        return view('user',['users'=>$users]);
+    }
 }

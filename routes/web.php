@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Schema;
 */
 
 Route::get('/show/activities','App\Http\Controllers\ActivityController@show');
+Route::get('/show/users','App\Http\Controllers\UserController@show');
 Route::get('/', function () {
     return view('welcome');
 });
