@@ -1,7 +1,7 @@
 @include('header')
 <body>
     @if(count($events))
-        <table>
+        <table class="w3-table-all w3-centered">
             <tr>
                 <th>ID</th>
                 <th>User ID</th>

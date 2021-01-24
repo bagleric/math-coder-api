@@ -1,7 +1,7 @@
 @include('header')
 <body>
     @if(count($activities))
-        <table>
+        <table class="w3-table-all w3-centered">
             <tr>
                 <th>ID</th>
                 <th>User ID</th>
