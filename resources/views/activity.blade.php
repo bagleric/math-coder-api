@@ -1,2 +1,2 @@
 <?php
-{{$activities}}
+{{ dd($activities) }}
