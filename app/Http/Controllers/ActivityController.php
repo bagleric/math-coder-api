@@ -47,6 +47,7 @@ class ActivityController extends Controller
     }
     public function show(){
         $activities = Activity::all();
+        dd($activities);
         return view('activity',['activities',$activities]);
     }
 }
