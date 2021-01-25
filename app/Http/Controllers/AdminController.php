@@ -21,7 +21,7 @@ class AdminController extends Controller
         $errors = [];
         if($username == 'admin'){
             if($password == '1234'){
-                return redirect()->route('/');
+                return redirect()->route('home');
             }else{
                 $errors['password'] = ['Wrong Password!'];
             }

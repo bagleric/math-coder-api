@@ -21,6 +21,6 @@ Route::get('/answer/show','App\Http\Controllers\AnswerController@show')->name('a
 Route::get('/event/show','App\Http\Controllers\EventController@show')->name('event.show');
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home');
 
 Route::get('/admin/login','App\Http\Controllers\ActivityController@show')->name('activity.show');
