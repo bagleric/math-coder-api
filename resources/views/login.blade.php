@@ -16,7 +16,7 @@
         <div class="form-group">
             <label class="control-label col-sm-2" for="username">User Name:</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="username" placeholder="Enter Username" name="username" >
+                <input type="text" class="form-control" id="username" placeholder="Enter Username" name="username" value="{{ old('username') }}">
                 @error('username')
                     <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
@@ -25,7 +25,7 @@
         <div class="form-group">
             <label class="control-label col-sm-2" for="pwd">Password:</label>
             <div class="col-sm-10">
-                <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd" >
+                <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd" value="{{ old('pwd') }}">
                 @error('pwd')
                 <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
