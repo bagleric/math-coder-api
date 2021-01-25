@@ -14,13 +14,12 @@ use Illuminate\Support\Facades\Schema;
 */
 Route::get('/admin/show','App\Http\Controllers\AdminController@show')->name('admin.show');
 Route::post('/admin/login','App\Http\Controllers\AdminController@login')->name('admin.login');
-
-Route::get('/activity/show','App\Http\Controllers\ActivityController@show')->name('activity.show');
-Route::get('/user/show','App\Http\Controllers\UserController@show')->name('user.show');
-Route::get('/answer/show','App\Http\Controllers\AnswerController@show')->name('answer.show');
-Route::get('/event/show','App\Http\Controllers\EventController@show')->name('event.show');
-Route::get('/', function () {
-    return view('welcome');
-})->name('home');
-
-Route::get('/admin/login','App\Http\Controllers\ActivityController@show')->name('activity.show');
+Route::middleware(['admin'])->group(function () {
+    Route::get('/activity/show','App\Http\Controllers\ActivityController@show')->name('activity.show');
+    Route::get('/user/show','App\Http\Controllers\UserController@show')->name('user.show');
+    Route::get('/answer/show','App\Http\Controllers\AnswerController@show')->name('answer.show');
+    Route::get('/event/show','App\Http\Controllers\EventController@show')->name('event.show');
+    Route::get('/', function () {
+        return view('welcome');
+    })->name('home');
+});
