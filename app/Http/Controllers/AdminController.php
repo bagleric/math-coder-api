@@ -7,6 +7,10 @@ use Illuminate\Support\Facades\Validator;
 
 class AdminController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('guest', ['except' => 'logout']);
+    }
     public function show(){
         return view('login');
     }
