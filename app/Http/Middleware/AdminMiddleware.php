@@ -16,9 +16,9 @@ class AdminMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        if (($request->input('username') !== 'admin') && ($request->input('password') !== '1234')) {
-            return redirect()->route('admin.show');
+        if (($request->input('username') == 'admin') and ($request->input('password') == '1234')) {
+            return $next($request);
         }
-        return $next($request);
+        return redirect()->route('admin.show');
     }
 }
