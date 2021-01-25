@@ -11,17 +11,19 @@ class AdminMiddleware
     /**
      * Handle an incoming request.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
+     * @param \Illuminate\Http\Request $request
+     * @param \Closure $next
      * @return mixed
      */
-    public function handle(Request $request, Closure $next)
+    public function handle($request, Closure $next, $guard = null)
     {
-        $credentials = $request->only('username', 'password');
-        if (Auth::guard('admin')->attempt($credentials)) {
+        if (Auth::guard($guard)->guest()) {
+            if ($request->ajax()) {
+                return response('Unauthorized.', 401);
+            } else {
+                return redirect()->guest('/admin/login');
+            }
             return $next($request);
         }
-//        return response('Unauthorized.', 401);
-        return view('login')->with('user',Auth::user());
     }
 }
