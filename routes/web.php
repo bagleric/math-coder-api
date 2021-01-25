@@ -12,6 +12,8 @@ use Illuminate\Support\Facades\Schema;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/admin/show','App\Http\Controllers\AdminController@show')->name('admin.show');
+Route::post('/admin/login','App\Http\Controllers\AdminController@login')->name('admin.login');
 
 Route::get('/activity/show','App\Http\Controllers\ActivityController@show')->name('activity.show');
 Route::get('/user/show','App\Http\Controllers\UserController@show')->name('user.show');
@@ -21,3 +23,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/admin/login','App\Http\Controllers\ActivityController@show')->name('activity.show');

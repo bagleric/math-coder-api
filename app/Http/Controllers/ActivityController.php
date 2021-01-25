@@ -21,7 +21,7 @@ class ActivityController extends Controller
             'compilation_timestamps.*' => ['required' | 'string'],
             'screen_size' => ['bail', 'required', 'max:255'],
         ]);
-//        return $validator->fails();
+
         if ($validator->fails()) {
             return [
                 'success'=>false,
