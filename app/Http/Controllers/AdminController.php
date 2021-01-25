@@ -15,18 +15,29 @@ class AdminController extends Controller
             'username' => 'required',
             'pwd' => 'required',
         ]);
-        dd($validator);
+
         if ($validator->fails()) {
             return redirect()->back()
                 ->withErrors($validator)
                 ->withInput();
         }
-
         $username = $request->username;
         $password = $request->pwd;
-        if($username == 'admin' && $password == '1234'){
-            return view('welcome');
+        if($username == 'admin'){
+            if($password == '1234'){
+                return view('welcome');
+            }else{
+                $validator->errors()->add(
+                    'pwd', 'Wrong Password!'
+                );
+            }
+        }else{
+            $validator->errors()->add(
+                'username', 'Wrong Username!'
+            );
         }
-        return back();
+        return redirect()->back()
+            ->withErrors($validator)
+            ->withInput();
     }
 }
