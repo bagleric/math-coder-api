@@ -24,10 +24,10 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label col-sm-2" for="pwd">Password:</label>
+            <label class="control-label col-sm-2" for="password">Password:</label>
             <div class="col-sm-10">
-                <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd" value="{{ old('pwd') }}">
-                @error('pwd')
+                <input type="password" class="form-control" id="password" placeholder="Enter password" name="password" value="{{ old('password') }}">
+                @error('password')
                 <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
             </div>

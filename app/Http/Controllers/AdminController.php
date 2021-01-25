@@ -13,31 +13,23 @@ class AdminController extends Controller
     public function login(Request $request){
         $validator = $request->validate([
             'username' => 'required',
-            'pwd' => 'required',
+            'password' => 'required',
         ]);
 
-//        if ($validator->fails()) {
-//            return redirect()->back()
-//                ->withErrors($validator)
-//                ->withInput();
-//        }
         $username = $request->username;
         $password = $request->pwd;
+        $errors = [];
         if($username == 'admin'){
             if($password == '1234'){
                 return view('welcome');
             }else{
-                $validator->errors()->add(
-                    'pwd', 'Wrong Password!'
-                );
+                $errors['password'] = ['Wrong Password!'];
             }
         }else{
-            $validator->errors()->add(
-                'username', 'Wrong Username!'
-            );
+            $errors['username'] = ['Wrong Username!'];
         }
         return redirect()->back()
-            ->withErrors($validator)
+            ->withErrors($errors)
             ->withInput();
     }
 }
