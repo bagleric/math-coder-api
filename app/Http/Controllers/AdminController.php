@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
 class AdminController extends Controller
@@ -19,21 +20,26 @@ class AdminController extends Controller
             'username' => 'required',
             'password' => 'required',
         ]);
-
-        $username = $request->username;
-        $password = $request->password;
-        $errors = [];
-        if($username == 'admin'){
-            if($password == '1234'){
-                return redirect()->route('home');
-            }else{
-                $errors['password'] = ['Wrong Password!'];
-            }
-        }else{
-            $errors['username'] = ['Wrong Username!'];
+        $credentials = $request->only('username','password');
+        if(Auth::guard('admin')->attempt($credentials)){
+            return redirect()->route('home');
         }
-        return redirect()->back()
-            ->withErrors($errors)
-            ->withInput();
+        return redirect()->back();
+
+//        $username = $request->username;
+//        $password = $request->password;
+//        $errors = [];
+//        if($username == 'admin'){
+//            if($password == '1234'){
+//                return redirect()->route('home');
+//            }else{
+//                $errors['password'] = ['Wrong Password!'];
+//            }
+//        }else{
+//            $errors['username'] = ['Wrong Username!'];
+//        }
+//        return redirect()->back()
+//            ->withErrors($errors)
+//            ->withInput();
     }
 }
