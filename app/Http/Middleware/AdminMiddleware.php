@@ -21,7 +21,7 @@ class AdminMiddleware
             if ($request->ajax()) {
                 return response('Unauthorized.', 401);
             } else {
-                return redirect()->guest('/admin/login');
+                return redirect()->guest('/admin/show');
             }
             return $next($request);
         }
