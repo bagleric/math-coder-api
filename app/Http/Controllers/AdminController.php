@@ -20,6 +20,7 @@ class AdminController extends Controller
                 ->withErrors($validator)
                 ->withInput();
         }
+        dd($validator);
         $username = $request->username;
         $password = $request->pwd;
         if($username == 'admin' && $password == '1234'){
