@@ -21,5 +21,6 @@ class AdminMiddleware
         if (Auth::guard('admin')->attempt($credentials)) {
             return $next($request);
         }
+        return back();
     }
 }
