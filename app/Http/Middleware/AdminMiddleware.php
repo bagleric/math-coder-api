@@ -21,6 +21,7 @@ class AdminMiddleware
         if (Auth::guard('admin')->attempt($credentials)) {
             return $next($request);
         }
-        return response('Unauthorized.', 401);
+//        return response('Unauthorized.', 401);
+        return view('login');
     }
 }
