@@ -17,7 +17,7 @@ class AdminController extends Controller
         ]);
 
         $username = $request->username;
-        $password = $request->pwd;
+        $password = $request->password;
         $errors = [];
         if($username == 'admin'){
             if($password == '1234'){
