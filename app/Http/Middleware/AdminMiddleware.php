@@ -22,6 +22,6 @@ class AdminMiddleware
             return $next($request);
         }
 //        return response('Unauthorized.', 401);
-        return view('login');
+        return view('login')->with('user',Auth::user());
     }
 }
