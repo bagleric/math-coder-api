@@ -21,6 +21,5 @@ class AdminMiddleware
         if (Auth::guard('admin')->attempt($credentials)) {
             return $next($request);
         }
-        return redirect()->route('home');
     }
 }
