@@ -12,7 +12,8 @@
 
 <div class="container">
     <h2>Admin Login</h2>
-    <form class="form-horizontal" action="{{route('admin.login')}}">
+    <form class="form-horizontal" action="{{route('admin.login')}}" method="post">
+        @csrf
         <div class="form-group">
             <label class="control-label col-sm-2" for="username">User Name:</label>
             <div class="col-sm-10">
