@@ -1,4 +1,4 @@
-@extends('header')
+@extends('template')
 @section('content')
     <div class="w3-container">
         <h2>Math Coder API</h2>

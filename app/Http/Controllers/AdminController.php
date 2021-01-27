@@ -23,7 +23,7 @@ class AdminController extends Controller
         $remember = $request->remember;
         if(Auth::guard('admin')->attempt($credentials, $remember)){
             $request->session()->regenerate();
-            return redirect()->intended('home');
+            return redirect()->intended('/');
         }
         return back()->withErrors([
             'username' => 'Wrong Credentials',
