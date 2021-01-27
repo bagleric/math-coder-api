@@ -19,12 +19,12 @@ class AdminMiddleware
     {
         if (Auth::guard($guard)->guest()) {
             if ($request->ajax()) {
-                dd("brings here");
+//                dd("brings here");
                 return response('Unauthorized.', 401);
             } else {
                 return redirect()->guest('/admin/show');
             }
-            dd("brings here");
+//            dd("brings here");
             return $next($request);
         }
     }
