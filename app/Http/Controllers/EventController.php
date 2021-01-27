@@ -39,7 +39,7 @@ class EventController extends Controller
     }
     public function show(){
         $events = Event::all();
-        return $events;
+//        return $events;
         return view('event',['events'=>$events]);
     }
 }
