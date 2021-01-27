@@ -26,8 +26,12 @@ class AdminController extends Controller
         if(Auth::guard('admin')->attempt($credentials)){
 //            dd("inside if");
 //            dd(Auth::guard('admin')->user());
-            return redirect()->intended('/');
+            $request->session()->regenerate();
+            return redirect()->intended('home');
         }
+        return back()->withErrors([
+            'username' => 'The provided credentials do not match our records.',
+        ]);
         dd("inside else");
         return redirect()->back();
 

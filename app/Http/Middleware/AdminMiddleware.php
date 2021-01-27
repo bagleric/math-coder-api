@@ -15,17 +15,19 @@ class AdminMiddleware
      * @param \Closure $next
      * @return mixed
      */
-    public function handle($request, Closure $next, $guard = null)
+    public function handle($request, $next)
     {
-        if (Auth::guard($guard)->guest()) {
-            if ($request->ajax()) {
-//                dd("brings here");
-                return response('Unauthorized.', 401);
-            } else {
-                return redirect()->guest('/admin/show');
-            }
-//            dd("brings here");
-            return $next($request);
-        }
+        return Auth::onceBasic() ?: $next($request);
     }
+//    public function handle($request, Closure $next, $guard = null)
+//    {
+//        if (Auth::guard($guard)->guest()) {
+//            if ($request->ajax()) {
+//                return response('Unauthorized.', 401);
+//            } else {
+//                return redirect()->guest('/admin/show');
+//            }
+//            return $next($request);
+//        }
+//    }
 }
