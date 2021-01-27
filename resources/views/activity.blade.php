@@ -1,5 +1,5 @@
-@include('header')
-<body>
+@extends('template')
+@section('content')
     @if(count($activities))
         <table class="w3-table-all w3-centered">
             <tr>
@@ -32,4 +32,4 @@
     @else
         No Data found
     @endif
-</body>
+@endsection

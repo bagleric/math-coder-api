@@ -1,5 +1,5 @@
-@include('header')
-<body>
+@extends('template')
+@section('content')
     @if(count($events))
         <table>
             <tr>
@@ -24,4 +24,4 @@
     @else
         No Data found
     @endif
-</body>
+@endsection
