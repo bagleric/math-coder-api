@@ -24,7 +24,8 @@ class AdminController extends Controller
 //        dd($credentials);
 //        dd(Auth::guard('admin')->attempt($credentials));
         if(Auth::guard('admin')->attempt($credentials)){
-            dd("inside if");
+//            dd("inside if");
+            dd(Auth::guard('admin')->user());
             return redirect()->route('home');
         }
         dd("inside else");
