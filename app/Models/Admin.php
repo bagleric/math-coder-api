@@ -9,5 +9,5 @@ use Illuminate\Notifications\Notifiable;
 class Admin extends User
 {
 //    use HasFactory, Notifiable;
-    protected $fillable = ['username', 'password'];
+    protected $fillable = ['username', 'password', 'remember_token'];
 }

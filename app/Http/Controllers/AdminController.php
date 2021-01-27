@@ -20,12 +20,27 @@ class AdminController extends Controller
             'password' => 'required',
         ]);
         $credentials = $request->only('username','password');
-        if(Auth::guard('admin')->attempt($credentials)){
+        $remember = $request->remember;
+        if(Auth::guard('admin')->attempt($credentials, $remember)){
             $request->session()->regenerate();
             return redirect()->intended('home');
         }
         return back()->withErrors([
             'username' => 'Wrong Credentials',
         ])->withInput();
+    }
+
+    /**
+     * Log the user out of the application.
+     *
+     * @param  \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\Response
+     */
+    public function logout(Request $request)
+    {
+        Auth::guard('admin')->logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect('/');
     }
 }
