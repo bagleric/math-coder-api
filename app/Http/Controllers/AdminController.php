@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Validator;
 
 class AdminController extends Controller
 {
@@ -21,34 +20,12 @@ class AdminController extends Controller
             'password' => 'required',
         ]);
         $credentials = $request->only('username','password');
-//        dd($credentials);
-//        dd(Auth::guard('admin')->attempt($credentials));
         if(Auth::guard('admin')->attempt($credentials)){
-//            dd("inside if");
-//            dd(Auth::guard('admin')->user());
             $request->session()->regenerate();
             return redirect()->intended('home');
         }
         return back()->withErrors([
-            'username' => 'The provided credentials do not match our records.',
-        ]);
-        dd("inside else");
-        return redirect()->back();
-
-//        $username = $request->username;
-//        $password = $request->password;
-//        $errors = [];
-//        if($username == 'admin'){
-//            if($password == '1234'){
-//                return redirect()->route('home');
-//            }else{
-//                $errors['password'] = ['Wrong Password!'];
-//            }
-//        }else{
-//            $errors['username'] = ['Wrong Username!'];
-//        }
-//        return redirect()->back()
-//            ->withErrors($errors)
-//            ->withInput();
+            'username' => 'Wrong Credentials',
+        ])->withInput();
     }
 }
