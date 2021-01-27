@@ -21,7 +21,7 @@ class AdminController extends Controller
             'password' => 'required',
         ]);
         $credentials = $request->only('username','password');
-        dd($credentials);
+//        dd($credentials);
         dd(Auth::guard('admin')->attempt($credentials));
         if(Auth::guard('admin')->attempt($credentials)){
             return redirect()->route('home');
