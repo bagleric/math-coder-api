@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 //    return $request->user();
 //});
 Route::post('/user/create','App\Http\Controllers\UserController@createUser');
+Route::post('/user/about','App\Http\Controllers\UserController@about');
 Route::post('/answer/store','App\Http\Controllers\AnswerController@storeAnswer');
 Route::post('/event/store','App\Http\Controllers\EventController@storeEvent');
 Route::get('/standard/get','App\Http\Controllers\StandardController@get');

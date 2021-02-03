@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Activity;
+use App\Models\Answer;
+use App\Models\Event;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -32,5 +35,27 @@ class UserController extends Controller
     public function show(){
         $users = User::all();
         return view('user',['users'=>$users]);
+    }
+    public function about(Request $request){
+        $validator = Validator::make($request->all(), [
+            'id' => ['bail', 'required', 'exists:users,id'],
+        ]);
+        if ($validator->fails()) {
+            return [
+                'success'=>false,
+                'errors'=>$validator->errors()->first(),
+            ];
+        }
+        $id = $request->id;
+        $user = User::find($id);
+        if($user){
+            $user->answers = Answer::where('user_id',$id);
+            $user->event = Event::where('user_id',$id);
+            $user->activities = Activity::where('user_id',$id);
+        }
+        return [
+            'success'=>true,
+            'about'=>$activity,
+        ];
     }
 }
