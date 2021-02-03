@@ -2,16 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Schema;
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+use Carbon\Carbon;
+Route::get('/test',function (){
+    $dtime = Carbon::createFromFormat('Y-m-d H:i:s', '2019-02-01 03:45:27')->toDateTimeString();
+    echo $dtime;
+});
 Route::get('/admin/show','App\Http\Controllers\AdminController@show')->name('admin.show');
 Route::post('/admin/login','App\Http\Controllers\AdminController@login')->name('admin.login');
 Route::middleware(['auth:admin'])->group(function () {

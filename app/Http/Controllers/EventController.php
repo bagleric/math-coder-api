@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Event;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Carbon\Carbon;
+use mysql_xdevapi\Exception;
 
 class EventController extends Controller
 {
@@ -16,12 +18,31 @@ class EventController extends Controller
             'blockly_event'=>['bail', 'json', 'nullable'],
             'created_at' => ['required', 'date_format:Y-m-d H:i:s'],
         ]);
+
         if ($validator->fails()) {
             return [
                 'success'=>false,
                 'errors'=>$validator->errors()->first(),
             ];
         }
+        try {
+            $created_at = Carbon::createFromFormat('Y-m-d H:i:s', $request->created_at)->toDateTimeString();
+            $validator = Validator::make(['created_at' => $created_at], [
+                'created_at' => ['required', 'date_format:Y-m-d H:i:s'],
+            ]);
+            if ($validator->fails()) {
+                return [
+                    'success'=>false,
+                    'errors'=>$validator->errors()->first(),
+                ];
+            }
+        }catch (Exception $exception){
+            return [
+                'success'=>false,
+                'errors'=>"The created at field must be in Y-m-d H:i:s format",
+            ];
+        }
+
         $event = new Event();
         $event->user_id = $request->user_id;
         $event->activity_id = $request->activity_id;

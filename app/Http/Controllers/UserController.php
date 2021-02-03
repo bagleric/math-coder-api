@@ -48,27 +48,9 @@ class UserController extends Controller
         }
         $id = $request->id;
         $user = User::find($id)->first();
-//        dd(collect($user));
-//        $user = collect($user);
-//        $user->answers = Answer::where('user_id',$id);
-//        $answers = Answer::where('user_id',$id)->get();
         $answers = $user->answers;
-//        if($answers){
-//            $user->answers = collect($answers);
-//        }
-//        $user->event = Event::where('user_id',$id);
-//        $events = Event::where('user_id',$id)->get();
         $events = $user->events;
-//        if($events){
-//            $user->event = collect($events);
-//        }
-//        $user->activities = Activity::where('user_id',$id);
-//        $activities = Activity::where('user_id',$id)->get();
         $activities = $user->activities;
-//        if($activities){
-//            $user->activities = collect($activities);
-//        }
-//        return $answers;
         return [
             'success'=>true,
             'user'=>$user,
