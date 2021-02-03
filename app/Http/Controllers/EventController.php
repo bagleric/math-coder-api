@@ -26,6 +26,7 @@ class EventController extends Controller
         }
         try {
             $created_at = Carbon::createFromFormat('Y-m-d H:i:s', $request->created_at);
+            dd($created_at);
             $validator = Validator::make(['created_at' => $created_at], [
                 'created_at' => ['required', 'date_format:Y-m-d H:i:s'],
             ]);
