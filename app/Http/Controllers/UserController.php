@@ -51,7 +51,8 @@ class UserController extends Controller
 //        dd(collect($user));
 //        $user = collect($user);
 //        $user->answers = Answer::where('user_id',$id);
-        $answers = Answer::where('user_id',$id)->get();
+//        $answers = Answer::where('user_id',$id)->get();
+        $answers = $user->answers;
 //        if($answers){
 //            $user->answers = collect($answers);
 //        }
