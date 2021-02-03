@@ -48,19 +48,19 @@ class UserController extends Controller
         }
         $id = $request->id;
         $user = User::find($id)->first();
-        dd(collect($user));
-        $user = User::find($id)->first()->toArray();
+//        dd(collect($user));
+        $user = collect($user);
         $answers = Answer::where('user_id',$id);
         if($answers){
-            $user['answers'] = $answers->toArray();
+            $user->answers = $answers->toArray();
         }
         $events = Event::where('user_id',$id);
         if($events){
-            $user['event'] = $events->toArray();
+            $user->event = $events->toArray();
         }
         $activities = Activity::where('user_id',$id);
         if($activities){
-            $user['activities'] = $activities->toArray();
+            $user->activities = $activities->toArray();
         }
         return [
             'success'=>true,
