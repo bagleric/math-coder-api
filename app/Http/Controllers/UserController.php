@@ -50,18 +50,21 @@ class UserController extends Controller
         $user = User::find($id)->first();
 //        dd(collect($user));
         $user = collect($user);
-        $answers = Answer::where('user_id',$id);
-        if($answers){
-            $user->answers = collect($answers);
-        }
-        $events = Event::where('user_id',$id);
-        if($events){
-            $user->event = collect($events);
-        }
-        $activities = Activity::where('user_id',$id);
-        if($activities){
-            $user->activities = collect($activities);
-        }
+        $user->answers = Answer::where('user_id',$id);
+//        $answers = Answer::where('user_id',$id);
+//        if($answers){
+//            $user->answers = collect($answers);
+//        }
+        $user->event = Event::where('user_id',$id);
+//        $events = Event::where('user_id',$id);
+//        if($events){
+//            $user->event = collect($events);
+//        }
+        $user->activities = Activity::where('user_id',$id);
+//        $activities = Activity::where('user_id',$id);
+//        if($activities){
+//            $user->activities = collect($activities);
+//        }
         return [
             'success'=>true,
             'about'=>$user,
