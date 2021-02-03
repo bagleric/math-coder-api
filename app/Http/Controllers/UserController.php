@@ -51,17 +51,17 @@ class UserController extends Controller
 //        dd(collect($user));
 //        $user = collect($user);
 //        $user->answers = Answer::where('user_id',$id);
-        $answers = Answer::where('user_id',$id);
+        $answers = Answer::where('user_id',$id)->get();
 //        if($answers){
 //            $user->answers = collect($answers);
 //        }
 //        $user->event = Event::where('user_id',$id);
-        $events = Event::where('user_id',$id);
+        $events = Event::where('user_id',$id)->get();
 //        if($events){
 //            $user->event = collect($events);
 //        }
 //        $user->activities = Activity::where('user_id',$id);
-        $activities = Activity::where('user_id',$id);
+        $activities = Activity::where('user_id',$id)->get();
 //        if($activities){
 //            $user->activities = collect($activities);
 //        }
