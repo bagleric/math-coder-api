@@ -65,7 +65,7 @@ class UserController extends Controller
 //        if($activities){
 //            $user->activities = collect($activities);
 //        }
-        dd($user,$activities,$events,$answers);
+        return $answers;
         return [
             'success'=>true,
             'about'=>$user,
