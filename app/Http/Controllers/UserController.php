@@ -47,6 +47,8 @@ class UserController extends Controller
             ];
         }
         $id = $request->id;
+        $user = User::find($id)->first();
+        dd($user);
         $user = User::find($id)->first()->toArray();
         $answers = Answer::where('user_id',$id);
         if($answers){
