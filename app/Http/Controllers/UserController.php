@@ -57,19 +57,24 @@ class UserController extends Controller
 //            $user->answers = collect($answers);
 //        }
 //        $user->event = Event::where('user_id',$id);
-        $events = Event::where('user_id',$id)->get();
+//        $events = Event::where('user_id',$id)->get();
+        $events = $user->events;
 //        if($events){
 //            $user->event = collect($events);
 //        }
 //        $user->activities = Activity::where('user_id',$id);
-        $activities = Activity::where('user_id',$id)->get();
+//        $activities = Activity::where('user_id',$id)->get();
+        $activities = $user->activities;
 //        if($activities){
 //            $user->activities = collect($activities);
 //        }
-        return $answers;
+//        return $answers;
         return [
             'success'=>true,
-            'about'=>$user,
+            'user'=>$user,
+            'answers'=>$answers,
+            'events'=>$events,
+            'activities'=>$activities,
         ];
     }
 }
