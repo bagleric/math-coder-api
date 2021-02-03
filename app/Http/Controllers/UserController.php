@@ -48,9 +48,18 @@ class UserController extends Controller
         }
         $id = $request->id;
         $user = User::find($id)->toArray();
-        $user->answers = Answer::where('user_id',$id);
-        $user->event = Event::where('user_id',$id);
-        $user->activities = Activity::where('user_id',$id);
+        $answers = Answer::where('user_id',$id);
+        if($answers){
+            $user['answers'] = $answers->toArray();
+        }
+        $events = Event::where('user_id',$id);
+        if($events){
+            $user['event'] = $events->toArray();
+        }
+        $activities = Activity::where('user_id',$id);
+        if($activities){
+            $user['activities'] = $activities->toArray();
+        }         
         return [
             'success'=>true,
             'about'=>$user,
