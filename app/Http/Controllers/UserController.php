@@ -55,7 +55,7 @@ class UserController extends Controller
         }
         return [
             'success'=>true,
-            'about'=>$activity,
+            'about'=>$user,
         ];
     }
 }
