@@ -6,7 +6,6 @@ use App\Models\Event;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Carbon\Carbon;
-use mysql_xdevapi\Exception;
 
 class EventController extends Controller
 {
@@ -36,7 +35,7 @@ class EventController extends Controller
                     'errors'=>$validator->errors()->first(),
                 ];
             }
-        }catch (Exception $exception){
+        }catch (\Exception $exception){
             return [
                 'success'=>false,
                 'errors'=>"The created at field must be in Y-m-d H:i:s format",
