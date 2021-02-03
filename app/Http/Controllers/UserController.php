@@ -47,7 +47,7 @@ class UserController extends Controller
             ];
         }
         $id = $request->id;
-        $user = User::find($id)->toArray();
+        $user = User::find($id)->first()->toArray();
         $answers = Answer::where('user_id',$id);
         if($answers){
             $user['answers'] = $answers->toArray();
@@ -59,7 +59,7 @@ class UserController extends Controller
         $activities = Activity::where('user_id',$id);
         if($activities){
             $user['activities'] = $activities->toArray();
-        }         
+        }
         return [
             'success'=>true,
             'about'=>$user,
