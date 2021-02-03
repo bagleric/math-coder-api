@@ -16,7 +16,7 @@ class EventController extends Controller
             'activity_id' => ['bail', 'required', 'max:255'],
             'module_id' => ['bail', 'required', 'max:255'],
             'blockly_event'=>['bail', 'json', 'nullable'],
-            'created_at' => ['required', 'date_format:Y-m-d H:i:s'],
+            'created_at' => ['required', 'string'],
         ]);
 
         if ($validator->fails()) {
