@@ -52,15 +52,15 @@ class UserController extends Controller
         $user = collect($user);
         $answers = Answer::where('user_id',$id);
         if($answers){
-            $user->answers = $answers->toArray();
+            $user->answers = collect($answers);
         }
         $events = Event::where('user_id',$id);
         if($events){
-            $user->event = $events->toArray();
+            $user->event = collect($events);
         }
         $activities = Activity::where('user_id',$id);
         if($activities){
-            $user->activities = $activities->toArray();
+            $user->activities = collect($activities);
         }
         return [
             'success'=>true,
