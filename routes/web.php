@@ -6,8 +6,7 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\Validator;
 
 Route::get('/test',function (){
-    $time= Carbon::create('2019-02-01 03:45:27');
-    dd($time->toDateTime());
+
 });
 Route::get('/admin/show','App\Http\Controllers\AdminController@show')->name('admin.show');
 Route::post('/admin/login','App\Http\Controllers\AdminController@login')->name('admin.login');

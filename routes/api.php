@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Carbon\Carbon;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +18,13 @@ use Illuminate\Support\Facades\Route;
 //Route::middleware('auth:api')->get('/user', function (Request $request) {
 //    return $request->user();
 //});
+Route::post('/test',function (Request $request){
+//    dd(gettype($request->time));
+//    $time= Carbon::parse($request->time)->format('Y-m-d H:i:s');
+    $time= Carbon::parse($request->time);
+    return gettype($time);
+//    dd($time->toDateTime());
+});
 Route::post('/user/create','App\Http\Controllers\UserController@createUser');
 Route::post('/user/about','App\Http\Controllers\UserController@about');
 Route::post('/answer/store','App\Http\Controllers\AnswerController@storeAnswer');
