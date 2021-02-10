@@ -15,7 +15,7 @@ class EventController extends Controller
             'activity_id' => ['bail', 'required', 'max:255'],
             'module_id' => ['bail', 'required', 'max:255'],
             'blockly_event'=>['bail', 'json', 'nullable'],
-            'created_at' => ['required', 'string'],
+            'created_at' => ['bail', 'required', 'string'],
         ]);
         if ($validator->fails()) {
             return [
@@ -24,8 +24,10 @@ class EventController extends Controller
             ];
         }
         try {
-            $created_at = strtotime($request->created_at);
-            $created_at = date('Y-m-d H:i:s', $created_at);
+//            $datetime= new DateTime($request->time);
+//            return $datetime->format("Y-m-d H:i:s");
+            $created_at = new DateTime($request->created_at);
+            $created_at = $created_at->format("Y-m-d H:i:s");
             $validator = Validator::make(['created_at' => $created_at], [
                 'created_at' => ['required', 'date_format:Y-m-d H:i:s'],
             ]);
