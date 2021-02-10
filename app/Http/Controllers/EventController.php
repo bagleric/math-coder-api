@@ -28,6 +28,7 @@ class EventController extends Controller
 //            return $datetime->format("Y-m-d H:i:s");
             $created_at = new \DateTime($request->created_at);
             $created_at = $created_at->format("Y-m-d H:i:s");
+            return $created_at;
             $validator = Validator::make(['created_at' => $created_at], [
                 'created_at' => ['required', 'date_format:Y-m-d H:i:s'],
             ]);
