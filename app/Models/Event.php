@@ -17,6 +17,6 @@ class Event extends Model
     }
     public function setCreatedAtAttribute($value)
     {
-        $this->attributes['created_at'] = return Carbon::parse($date);
+        return Carbon::parse($value);
     }
 }
