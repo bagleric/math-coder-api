@@ -17,7 +17,6 @@ class EventController extends Controller
             'blockly_event'=>['bail', 'json', 'nullable'],
             'created_at' => ['required', 'string'],
         ]);
-
         if ($validator->fails()) {
             return [
                 'success'=>false,
@@ -25,8 +24,8 @@ class EventController extends Controller
             ];
         }
         try {
-            $created_at = Carbon::createFromFormat('Y-m-d H:i:s', $request->created_at);
-            dd($created_at);
+            $created_at = strtotime($request->created_at);
+            $created_at = date('Y-m-d H:i:s', $created_at);
             $validator = Validator::make(['created_at' => $created_at], [
                 'created_at' => ['required', 'date_format:Y-m-d H:i:s'],
             ]);
@@ -35,6 +34,21 @@ class EventController extends Controller
                     'success'=>false,
                     'errors'=>$validator->errors()->first(),
                 ];
+            }else{
+                $event = new Event();
+                $event->user_id = $request->user_id;
+                $event->activity_id = $request->activity_id;
+                $event->module_id = $request->module_id;
+                if (array_key_exists('blockly_event', $request->all()) and $request->blockly_event != null){
+                    $event->blockly_event = $request->blockly_event;
+                }
+                $event->created_at = $created_at;
+                $event->save();
+                $event->blockly_event = json_decode($event->blockly_event);
+                return [
+                    'success'=>true,
+                    'event'=>$event,
+                ];
             }
         }catch (\Exception $exception){
             return [
@@ -42,25 +56,9 @@ class EventController extends Controller
                 'errors'=>"The created at field must be in Y-m-d H:i:s format",
             ];
         }
-
-        $event = new Event();
-        $event->user_id = $request->user_id;
-        $event->activity_id = $request->activity_id;
-        $event->module_id = $request->module_id;
-        if (array_key_exists('blockly_event', $request->all()) and $request->blockly_event != null){
-            $event->blockly_event = $request->blockly_event;
-        }
-        $event->created_at = $request->created_at;
-        $event->save();
-        $event->blockly_event = json_decode($event->blockly_event);
-        return [
-            'success'=>true,
-            'event'=>$event,
-        ];
     }
     public function show(){
         $events = Event::all();
-//        return $events;
         return view('event',['events'=>$events]);
     }
 }

@@ -3,9 +3,10 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Schema;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Validator;
+
 Route::get('/test',function (){
-    $dtime = Carbon::createFromFormat('Y-m-d H:i:s', '2019-02-01 03:45:27')->toDateTimeString();
-    echo $dtime;
+    
 });
 Route::get('/admin/show','App\Http\Controllers\AdminController@show')->name('admin.show');
 Route::post('/admin/login','App\Http\Controllers\AdminController@login')->name('admin.login');
