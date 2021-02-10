@@ -5,10 +5,9 @@ use Illuminate\Support\Facades\Schema;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Validator;
 
-Route::post('/test',function (\Illuminate\Http\Request $request){
-    $datetime= new DateTime($request->time);
-    return $datetime->format("Y-m-d H:i:s");
-    dd($datetime->format("Y-m-d H:i:s"));
+Route::get('/test',function (){
+    $time= Carbon::create('2019-02-01 03:45:27');
+    dd($time);
 });
 Route::get('/admin/show','App\Http\Controllers\AdminController@show')->name('admin.show');
 Route::post('/admin/login','App\Http\Controllers\AdminController@login')->name('admin.login');
