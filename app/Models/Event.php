@@ -17,6 +17,7 @@ class Event extends Model
     }
     public function setCreatedAtAttribute($value)
     {
-        $this['created_at'] = (Carbon::create($value))->toDateTime();
+        $carbon = Carbon::createFromFormat("Y-m-d H:i:s", $value);
+        $this['created_at'] = $carbon->toDateTime();
     }
 }
