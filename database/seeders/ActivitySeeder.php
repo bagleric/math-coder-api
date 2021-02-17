@@ -16,9 +16,19 @@ class ActivitySeeder extends Seeder
     public function run()
     {
         Schema::dropIfExists('users');
+        Schema::dropIfExists('password_resets');
+        Schema::dropIfExists('failed_jobs');
+        Schema::dropIfExists('standards');
+        Schema::dropIfExists('definitions');
+        Schema::dropIfExists('activities');
         Schema::dropIfExists('answers');
         Schema::dropIfExists('events');
-        Schema::dropIfExists('activities');
+        Schema::dropIfExists('blockly_events');
+        Schema::dropIfExists('create_blocks');
+        Schema::dropIfExists('delete_blocks');
+        Schema::dropIfExists('change_blocks');
+        Schema::dropIfExists('move_blocks');
+        Schema::dropIfExists('admins');
 
         if (count(DB::table('migrations')->get())) {
             DB::table('migrations')->truncate();
