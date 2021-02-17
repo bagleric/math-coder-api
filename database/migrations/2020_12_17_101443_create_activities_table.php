@@ -18,8 +18,8 @@ class CreateActivitiesTable extends Migration
             $table->string('user_id');
             $table->string('activity_id');
             $table->string('module_id');
-            $table->dateTime('started_at');
-            $table->dateTime('ended_at');
+            $table->string('started_at');
+            $table->string('ended_at');
             $table->integer('no_of_compiles');
             $table->boolean('completed');
             $table->text('compilation_timestamps');
