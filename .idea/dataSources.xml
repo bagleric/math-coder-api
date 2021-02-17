@@ -8,5 +8,12 @@
       <jdbc-url>jdbc:mysql://localhost:3306/mathcoder</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
+    <data-source source="LOCAL" name="MySQL -mathcoder" uuid="87b6df73-60fc-4b0c-974b-111c6a4d266b">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://mysql:3306/heroku_0227720a631e911?reconnect=true</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
   </component>
 </project>

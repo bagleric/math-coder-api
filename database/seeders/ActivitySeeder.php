@@ -20,9 +20,9 @@ class ActivitySeeder extends Seeder
         Schema::dropIfExists('events');
         Schema::dropIfExists('activities');
 
-//        if (count(DB::table('users')->get())) {
-//            DB::table('users')->truncate();
-//        }
+        if (count(DB::table('migrations')->get())) {
+            DB::table('migrations')->truncate();
+        }
 //        if (count(DB::table('answers')->get())) {
 //            DB::table('answers')->truncate();
 //        }

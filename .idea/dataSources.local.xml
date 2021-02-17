@@ -15,5 +15,11 @@
         </introspection-scope>
       </schema-mapping>
     </data-source>
+    <data-source name="MySQL -mathcoder" uuid="87b6df73-60fc-4b0c-974b-111c6a4d266b">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MYSQL" exact-version="0" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>root</user-name>
+      <schema-mapping />
+    </data-source>
   </component>
 </project>
