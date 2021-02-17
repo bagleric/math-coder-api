@@ -13,6 +13,8 @@ class AnswerController extends Controller
             'user_id' => ['bail','required', 'exists:users,id'],
             'question_id' => ['bail', 'required', 'max:255'],
             'value' => ['bail', 'required', 'max:255'],
+            'start_time' => ['bail', 'required', 'max:255'],
+            'end_time' => ['bail', 'required', 'max:255'],
         ]);
 
         if ($validator->fails()) {
@@ -25,6 +27,8 @@ class AnswerController extends Controller
         $answer->user_id = $request->user_id;
         $answer->question_id = $request->question_id;
         $answer->value = $request->value;
+        $answer->start_time = $request->start_time;
+        $answer->end_time = $request->end_time;
         $answer->save();
         return [
             'success'=>true,
