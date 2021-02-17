@@ -35,5 +35,8 @@
         .topnav-right {
             float: right;
         }
+        td{
+            text-align: center;
+        }
     </style>
 </head>

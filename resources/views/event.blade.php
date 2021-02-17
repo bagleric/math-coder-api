@@ -16,7 +16,7 @@
                     <td>{{ $event->user_id }}</td>
                     <td>{{ $event->activity_id }}</td>
                     <td>{{ $event->module_id }}</td>
-                    <td>{{ $event->blockly_event }}</td>
+                    <td><code>{{ $event->blockly_event }}</code></td>
                     <td>{{ $event->created_at }}</td>
                 </tr>
             @endforeach
