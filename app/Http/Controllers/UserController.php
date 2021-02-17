@@ -2,9 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Activity;
-use App\Models\Answer;
-use App\Models\Event;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -54,9 +51,6 @@ class UserController extends Controller
         return [
             'success'=>true,
             'user'=>$user,
-//            'answers'=>$answers,
-//            'events'=>$events,
-//            'activities'=>$activities,
         ];
     }
 }
