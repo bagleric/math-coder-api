@@ -48,9 +48,9 @@ class UserController extends Controller
         }
         $id = $request->id;
         $user = User::find($id)->first();
-//        $answers = $user->answers;
-//        $events = $user->events;
-//        $activities = $user->activities;
+        $answers = $user->answers;
+        $events = $user->events;
+        $activities = $user->activities;
         return [
             'success'=>true,
             'user'=>$user,
