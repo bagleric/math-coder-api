@@ -34,23 +34,14 @@ class UserController extends Controller
         return view('user',['users'=>$users]);
     }
     public function about(Request $request){
-        $validator = Validator::make($request->all(), [
-            'id' => ['bail', 'required', 'exists:users,id'],
+        $request->validate([
+            'id' => ['required', 'exists:users,id']
         ]);
-        if ($validator->fails()) {
-            return [
-                'success'=>false,
-                'errors'=>$validator->errors()->first(),
-            ];
-        }
         $id = $request->id;
         $user = User::find($id)->first();
         $answers = $user->answers;
         $events = $user->events;
         $activities = $user->activities;
-        return [
-            'success'=>true,
-            'user'=>$user,
-        ];
+        return view('about',['user'=>$user]);
     }
 }

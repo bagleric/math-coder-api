@@ -14,7 +14,7 @@ Route::middleware(['auth:admin'])->group(function () {
     Route::get('/admin/logout','App\Http\Controllers\AdminController@logout')->name('admin.logout');
     Route::get('/activity/show','App\Http\Controllers\ActivityController@show')->name('activity.show');
     Route::get('/user/show','App\Http\Controllers\UserController@show')->name('user.show');
-    Route::get('/user/{id}/about','App\Http\Controllers\UserController@show')->name('user.show');
+    Route::post('/user/about','App\Http\Controllers\UserController@about')->name('user.about');
     Route::get('/answer/show','App\Http\Controllers\AnswerController@show')->name('answer.show');
     Route::get('/event/show','App\Http\Controllers\EventController@show')->name('event.show');
     Route::get('/', function () {
