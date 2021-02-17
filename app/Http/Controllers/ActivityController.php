@@ -18,7 +18,7 @@ class ActivityController extends Controller
             'no_of_compiles' => ['bail', 'required', 'integer'],
             'completed' => ['bail', 'required', 'boolean'],
             'compilation_timestamps' => ['bail', 'required', 'string'],
-            'compilation_timestamps.*' => ['required' | 'string'],
+            'compilation_timestamps.*' => ['required' , 'string'],
             'screen_size' => ['bail', 'required', 'max:255'],
         ]);
 
