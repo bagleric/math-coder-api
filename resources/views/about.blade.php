@@ -11,6 +11,7 @@
         </tr>
         <tr>
             <th>Answers</th>
+            <hr>
             <td>
                 @if(count($user->answers))
                     <tr>
@@ -36,6 +37,7 @@
         </tr>
         <tr>
             <th>Events</th>
+            <hr>
             <td>
                 @if(count($user->events))
                     <tr>
@@ -61,6 +63,7 @@
         </tr>
         <tr>
             <th>Activities</th>
+            <hr>
             <td>
                 @if(count($user->activities))
                     <tr>
