@@ -25,7 +25,7 @@ Route::post('/test',function (Request $request){
     return gettype($time);
 //    dd($time->toDateTime());
 });
-Route::post('/user/create','App\Http\Controllers\UserController@createUser');
+Route::post('/user/create','App\Http\Controllers\Api\UserControllerApi@createUser');
 Route::post('/user/about','App\Http\Controllers\UserController@about');
 Route::post('/answer/store','App\Http\Controllers\AnswerController@storeAnswer');
 Route::post('/event/store','App\Http\Controllers\EventController@storeEvent');
