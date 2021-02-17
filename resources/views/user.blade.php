@@ -16,7 +16,7 @@
                         <form method="post" action="{{route('user.about')}}">
                             @csrf
                             <input type="hidden" name="id" value="{{$user->id}}">
-                            <button type="submit" class="btn btn-default">Submit</button>
+                            <button type="submit" class="btn btn-default">More</button>
                         </form>
                     </td>
                 </tr>
