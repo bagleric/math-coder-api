@@ -13,8 +13,21 @@
             <th>Answers</th>
             <td>
                 @if(count($user->answers))
+                    <tr>
+                        <th>ID</th>
+                        <th>Question ID</th>
+                        <th>Value</th>
+                        <th>Start Time</th>
+                        <th>End Time</th>
+                    </tr>
                     @foreach($user->answers as $answer)
-                        {{$answer->id}}
+                        <tr>
+                            <td>{{ $answer->id }}</td>
+                            <td>{{ $answer->question_id }}</td>
+                            <td>{{ $answer->value }}</td>
+                            <td>{{ $answer->start_time }}</td>
+                            <td>{{ $answer->end_time }}</td>
+                        </tr>
                     @endforeach
                 @else
                     No Data Available
@@ -27,7 +40,6 @@
                 @if(count($user->events))
                     <tr>
                         <th>ID</th>
-                        <th>User ID</th>
                         <th>Activity ID</th>
                         <th>Module ID</th>
                         <th>Blockly Event</th>
@@ -36,7 +48,6 @@
                     @foreach($user->events as $event)
                         <tr>
                             <td>{{ $event->id }}</td>
-                            <td>{{ $event->user_id }}</td>
                             <td>{{ $event->activity_id }}</td>
                             <td>{{ $event->module_id }}</td>
                             <td><code>{{ $event->blockly_event }}</code></td>
@@ -52,8 +63,29 @@
             <th>Activities</th>
             <td>
                 @if(count($user->activities))
+                    <tr>
+                        <th>ID</th>
+                        <th>Activity ID</th>
+                        <th>Module ID</th>
+                        <th>Started At</th>
+                        <th>Ended At</th>
+                        <th>No of Compiles</th>
+                        <th>Completed</th>
+                        <th>Compilation Timestamps</th>
+                        <th>Screen Size</th>
+                    </tr>
                     @foreach($user->activities as $activity)
-                        {{$activity->id}}
+                    <tr>
+                        <td>{{ $activity->id }}</td>
+                        <td>{{ $activity->activity_id }}</td>
+                        <td>{{ $activity->module_id }}</td>
+                        <td>{{ $activity->started_at }}</td>
+                        <td>{{ $activity->ended_at }}</td>
+                        <td>{{ $activity->no_of_compiles }}</td>
+                        <td>{{ $activity->completed }}</td>
+                        <td>{{ $activity->compilation_timestamps }}</td>
+                        <td>{{ $activity->screen_size }}</td>
+                    </tr>
                     @endforeach
                 @else
                     No Data Available
