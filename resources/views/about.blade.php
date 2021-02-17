@@ -1,7 +1,7 @@
 @extends('template')
 @section('content')
     <table>
-        <tr class="w3-table-all w3-centered">
+        <tr>
             <th>User ID</th>
             <td>{{$user->id}}</td>
         </tr>
@@ -10,7 +10,7 @@
             <td>{{$user->first_name}}&nbsp{{$user->last_name}}</td>
         </tr>
         <tr>
-            <th>Answers</th>
+            <th>Answers:</th>
             <hr>
             <td>
         @if(count($user->answers))
@@ -36,7 +36,7 @@
             </td>
             </tr>
             <tr>
-                <th>Events</th>
+                <th>Events:</th>
                 <td>
             @if(count($user->events))
                 <tr>
@@ -61,7 +61,7 @@
                 </td>
                 </tr>
                 <tr>
-                    <th>Activities</th>
+                    <th>Activities:</th>
                     <td>
                 @if(count($user->activities))
                     <tr>
