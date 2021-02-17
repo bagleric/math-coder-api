@@ -14,9 +14,9 @@ class AdminSeeder extends Seeder
      */
     public function run()
     {
-//        if(count(DB::table('admins')->get())){
-//            DB::table('admins')->truncate();
-//        }
+        if(count(DB::table('admins')->get())){
+            DB::table('admins')->truncate();
+        }
         DB::table('admins')->insert([
             'username' => 'admin',
             'password' => '$2b$10$0tPMAqCfLfPFJ.zIc05zWuhZgUlvsutddxHYYZpZ3Qff8RcBlPlg6',

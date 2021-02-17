@@ -2,8 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1dabbadd-6998-47fc-a487-5969384bd122" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/math-coder-api.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/math-coder-api.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ActivityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ActivityController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_02_17_085628_update_events_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_02_17_085628_update_events_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_02_17_085722_update_activities_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_02_17_085722_update_activities_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/ActivitySeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/ActivitySeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/AdminSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/AdminSeeder.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,6 +132,9 @@
       <path value="$PROJECT_DIR$/vendor/sebastian/diff" />
       <path value="$PROJECT_DIR$/vendor/sebastian/lines-of-code" />
       <path value="$PROJECT_DIR$/vendor/sebastian/type" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/cache" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/dbal" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/event-manager" />
     </include_path>
   </component>
   <component name="ProjectId" id="1lTa1zc1Sk6s7vr4rO2KCceHWSo" />
@@ -176,7 +184,7 @@
       <workItem from="1612344158214" duration="13690000" />
       <workItem from="1612952498266" duration="2218000" />
       <workItem from="1612956104567" duration="8642000" />
-      <workItem from="1613547337322" duration="3596000" />
+      <workItem from="1613547337322" duration="5235000" />
     </task>
     <servers />
   </component>

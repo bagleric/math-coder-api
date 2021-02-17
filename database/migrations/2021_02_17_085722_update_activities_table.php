@@ -27,8 +27,8 @@ class UpdateActivitiesTable extends Migration
     public function down()
     {
         Schema::table('activities', function (Blueprint $table) {
-            $table->dateTime('started_at');
-            $table->dateTime('ended_at');
+            $table->dateTime('started_at')->change();
+            $table->dateTime('ended_at')->change();
         });
     }
 }

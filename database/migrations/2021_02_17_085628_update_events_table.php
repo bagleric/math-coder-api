@@ -26,7 +26,7 @@ class UpdateEventsTable extends Migration
     public function down()
     {
         Schema::table('events', function (Blueprint $table) {
-            $table->dateTime('created_at');
+            $table->dateTime('created_at')->change();
         });
     }
 }
