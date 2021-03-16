@@ -38,10 +38,7 @@ class UserController extends Controller
             'id' => ['required', 'exists:users,id']
         ]);
         $id = $request->id;
-//        $user = User::find($id);
-        $user = User::find($id)->first();
-        return $user;
-//        $user = User::find($id)->first();
+        $user = User::find($id);
         $answers = $user->answers;
         $events = $user->events;
         $activities = $user->activities;
