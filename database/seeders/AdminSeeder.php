@@ -19,7 +19,7 @@ class AdminSeeder extends Seeder
 //        }
         DB::table('admins')->insert([
             'username' => 'admin',
-            'password' => '$2b$10$0tPMAqCfLfPFJ.zIc05zWuhZgUlvsutddxHYYZpZ3Qff8RcBlPlg6',
+            'password' => '$5$cDnJVzNA$iSdJIRa3B/E.89HPq4SiP0qIAuk.W4IYiyTnmbarnu8',
         ]);
     }
 }
